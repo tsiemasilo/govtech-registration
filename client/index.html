@@ -870,9 +870,7 @@
             formData.communicationMethod = 'email'; // Default
             
             try {
-                // Use local API in development, Netlify functions in production
-                const apiUrl = window.location.hostname === 'localhost' ? '/api/registrations' : '/.netlify/functions/registrations';
-                const response = await fetch(apiUrl, {
+                const response = await fetch('/.netlify/functions/registrations', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
