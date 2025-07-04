@@ -35,8 +35,10 @@ async function addToGoogleSheets(registrationData) {
     };
 
     console.log('Authenticating with Google Sheets...');
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID);
-    await doc.useServiceAccountAuth(serviceAccountAuth);
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID, {
+      auth: serviceAccountAuth
+    });
+    
     await doc.loadInfo();
     
     console.log('Loading spreadsheet info...');
