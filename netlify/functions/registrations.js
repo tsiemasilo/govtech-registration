@@ -28,15 +28,16 @@ async function addToGoogleSheets(registrationData) {
     
     console.log('Environment variables are set, proceeding with authentication...');
     
-    // Parse the service account credentials from environment variables
-    const serviceAccountAuth = {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    };
-
     console.log('Authenticating with Google Sheets...');
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID, {
-      auth: serviceAccountAuth
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID);
+    
+    // Use JWT authentication with properly formatted private key
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+    console.log('Private key starts with:', privateKey.substring(0, 50));
+    
+    await doc.useServiceAccountAuth({
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: privateKey,
     });
     
     await doc.loadInfo();
