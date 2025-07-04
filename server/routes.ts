@@ -4,6 +4,7 @@ import path from "path";
 import { insertRegistrationSchema } from "../shared/schema";
 import { storage } from "./storage";
 import { sendEmail, generateConfirmationEmail } from "./email";
+import { addToGoogleSheets } from "./googlesheets";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
@@ -54,6 +55,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create registration
       const registration = await storage.createRegistration(registrationData);
       const formattedId = `GOV-${registration.id.toString().padStart(6, '0')}`;
+      
+      // Add to Google Sheets (don't block on failure)
+      console.log("📊 Adding registration to Google Sheets...");
+      const sheetsSuccess = await addToGoogleSheets(registration);
+      if (!sheetsSuccess) {
+        console.log("⚠️ Failed to add registration to Google Sheets");
+      }
       
       // Send confirmation email
       console.log("📬 Preparing confirmation email...");
