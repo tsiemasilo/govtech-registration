@@ -695,8 +695,7 @@
         
         // Generate QR code on page load - pointing to your Netlify deployment
         window.onload = function() {
-            // Replace this with your actual Netlify deployment URL
-            const netlifyURL = 'https://your-app-name.netlify.app';
+            const netlifyURL = 'https://govtechcompetition.netlify.app';
             generateQR(netlifyURL);
         };
 
@@ -718,7 +717,7 @@
         }
 
         function copyURL() {
-            const netlifyURL = 'https://your-app-name.netlify.app';
+            const netlifyURL = 'https://govtechcompetition.netlify.app';
             navigator.clipboard.writeText(netlifyURL).then(() => {
                 alert('URL copied to clipboard!');
             });
