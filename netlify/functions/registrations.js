@@ -1,4 +1,5 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { JWT } = require('google-auth-library');
 
 // Simple in-memory storage for demo
 let registrations = [];
@@ -29,20 +30,24 @@ async function addToGoogleSheets(registrationData) {
     console.log('Environment variables are set, proceeding with authentication...');
     
     console.log('Authenticating with Google Sheets...');
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID);
     
-    // Use JWT authentication with properly formatted private key
+    // Create JWT authentication with properly formatted private key
     const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
     console.log('Private key starts with:', privateKey.substring(0, 50));
     
-    await doc.useServiceAccountAuth({
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: privateKey,
+    const serviceAccountAuth = new JWT({
+      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: privateKey,
+      scopes: [
+        'https://www.googleapis.com/auth/spreadsheets',
+      ],
     });
     
-    await doc.loadInfo();
+    // Initialize Google Sheets document with JWT auth
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID, serviceAccountAuth);
     
     console.log('Loading spreadsheet info...');
+    await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0]; // First sheet
     
     console.log('Adding row to sheet...');
