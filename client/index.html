@@ -296,7 +296,7 @@
                     <!-- Action Buttons -->
                     <div class="flex flex-col gap-4">
                         <div class="grid grid-cols-2 gap-3">
-                            <button class="flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-200 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all">
+                            <button onclick="downloadQR()" class="flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-200 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
@@ -314,9 +314,9 @@
                         <div class="pt-2">
                             <button onclick="showFormPage()" class="w-full flex items-center justify-center gap-3 px-6 py-4 bg-orange-gradient text-white rounded-lg font-semibold text-base hover:opacity-90 transition-all shadow-lg">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                Or Register Directly Here
+                                Enter Prize Draw Here
                             </button>
                         </div>
                     </div>
@@ -721,6 +721,54 @@
             navigator.clipboard.writeText(netlifyURL).then(() => {
                 alert('URL copied to clipboard!');
             });
+        }
+
+        function downloadQR() {
+            // Get the QR code SVG
+            const svg = document.querySelector('#qrcode-container svg');
+            if (!svg) {
+                alert('QR code not found. Please refresh the page.');
+                return;
+            }
+
+            // Create a canvas to convert SVG to image
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size (larger for better quality)
+            canvas.width = 400;
+            canvas.height = 400;
+            
+            // Create an image from the SVG
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+            
+            const img = new Image();
+            img.onload = function() {
+                // Fill with white background
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw the QR code
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                
+                // Convert to download link
+                canvas.toBlob(function(blob) {
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = 'govtec-registration-qr.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(downloadUrl);
+                }, 'image/png');
+                
+                URL.revokeObjectURL(url);
+            };
+            
+            img.src = url;
         }
 
         // Navigation functions
