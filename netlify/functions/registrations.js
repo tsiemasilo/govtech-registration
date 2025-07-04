@@ -10,18 +10,39 @@ const validCodes = ['GOVTEC2025', 'COMP001', 'REG123', 'EVENT2025'];
 // Google Sheets integration
 async function addToGoogleSheets(registrationData) {
   try {
+    console.log('Starting Google Sheets integration...');
+    
+    // Check if environment variables are set
+    if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+      console.error('GOOGLE_SERVICE_ACCOUNT_EMAIL is not set');
+      return false;
+    }
+    if (!process.env.GOOGLE_PRIVATE_KEY) {
+      console.error('GOOGLE_PRIVATE_KEY is not set');
+      return false;
+    }
+    if (!process.env.GOOGLE_SPREADSHEET_ID) {
+      console.error('GOOGLE_SPREADSHEET_ID is not set');
+      return false;
+    }
+    
+    console.log('Environment variables are set, proceeding with authentication...');
+    
     // Parse the service account credentials from environment variables
     const serviceAccountAuth = {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
       private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     };
 
+    console.log('Authenticating with Google Sheets...');
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREADSHEET_ID);
     await doc.useServiceAccountAuth(serviceAccountAuth);
     await doc.loadInfo();
     
+    console.log('Loading spreadsheet info...');
     const sheet = doc.sheetsByIndex[0]; // First sheet
     
+    console.log('Adding row to sheet...');
     await sheet.addRow({
       'Registration ID': registrationData.formattedId,
       'First Name': registrationData.firstName,
@@ -39,6 +60,10 @@ async function addToGoogleSheets(registrationData) {
     return true;
   } catch (error) {
     console.error('Error adding to Google Sheets:', error);
+    console.error('Error details:', error.message);
+    if (error.response) {
+      console.error('Error response:', error.response.data);
+    }
     return false;
   }
 }
