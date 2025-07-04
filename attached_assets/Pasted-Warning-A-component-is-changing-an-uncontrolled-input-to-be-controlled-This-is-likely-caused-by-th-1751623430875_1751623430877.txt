@@ -1,0 +1,59 @@
+Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+    at input
+    at _c (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/input.tsx:20:11)
+    at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVLBUYTV.js?v=40800d27:79:13
+    at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVLBUYTV.js?v=40800d27:56:13
+    at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:130:9
+    at div
+    at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:72:6
+    at Controller (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=40800d27:298:35)
+    at FormField (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:33:6)
+    at div
+    at div
+    at _c9 (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/card.tsx:114:12)
+    at div
+    at _c (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/card.tsx:20:11)
+    at form
+    at FormProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=40800d27:102:11)
+    at div
+    at div
+    at RegistrationForm (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/registration-form.tsx:35:44)
+    at Registration (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/pages/registration.tsx:22:27)
+    at Route (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=40800d27:323:16)
+    at Switch (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=40800d27:379:17)
+    at Router
+    at Provider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-UBQ2LXDH.js?v=40800d27:22:15)
+    at TooltipProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=40800d27:2212:5)
+    at QueryClientProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=40800d27:2805:3)
+    at App
+at input
+at _c (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/input.tsx:20:11)
+at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVLBUYTV.js?v=40800d27:79:13
+at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-EVLBUYTV.js?v=40800d27:56:13
+at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:130:9
+at div
+at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:72:6
+at Controller (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=40800d27:298:35)
+at FormField (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/form.tsx:33:6)
+at div
+at div
+at _c9 (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/card.tsx:114:12)
+at div
+at _c (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/ui/card.tsx:20:11)
+at form
+at FormProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-4BFJKWC4.js?v=40800d27:102:11)
+at div
+at div
+at RegistrationForm (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/components/registration-form.tsx:35:44)
+at Registration (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/src/pages/registration.tsx:22:27)
+at Route (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=40800d27:323:16)
+at Switch (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=40800d27:379:17)
+at Router
+at Provider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-UBQ2LXDH.js?v=40800d27:22:15)
+at TooltipProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=40800d27:2212:5)
+at QueryClientProvider (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=40800d27:2805:3)
+at App
+at t.value (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://db880b01-8d3d-4fc9-adb6-fdf122d2ddcd-00-3b4p507q1u1yd.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

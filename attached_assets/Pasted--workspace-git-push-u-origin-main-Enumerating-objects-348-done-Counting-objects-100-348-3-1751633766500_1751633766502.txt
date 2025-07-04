@@ -1,0 +1,42 @@
+~/workspace$ git push -u origin main
+Enumerating objects: 348, done.
+Counting objects: 100% (348/348), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (340/340), done.
+Writing objects: 100% (348/348), 509.66 KiB | 7.39 MiB/s, done.
+Total 348 (delta 169), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (169/169), done.
+remote: error: GH013: Repository rule violations found for refs/heads/main.
+remote: 
+remote: - GITHUB PUSH PROTECTION
+remote:   —————————————————————————————————————————
+remote:     Resolve the following violations before pushing again
+remote: 
+remote:     - Push cannot contain secrets
+remote: 
+remote:     
+remote:      (?) Learn how to resolve a blocked push
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push
+remote:     
+remote:     
+remote:       —— SendGrid API Key ——————————————————————————————————
+remote:        locations:
+remote:          - commit: 630b7dbc0f3afe1e838543f931e8cd863e3c25de
+remote:            path: server/email.ts:4
+remote:          - commit: 63dc00e421ffa020bf1e55a0518514f4ce26b275
+remote:            path: server/email.ts:4
+remote:          - commit: a7d62c8811668f4e30351f4423f833a29e8de855
+remote:            path: server/email.ts:4
+remote:          - commit: 56adaf68f37fad980331ccb60a0c912234ce125c
+remote:            path: server/email.ts:4
+remote:          - commit: 52a1d746914b7426c6e5fde796436bb1f28f90e3
+remote:            path: server/email.ts:4
+remote:     
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.
+remote:        https://github.com/tsiemasilo/govtech-registration/security/secret-scanning/unblock-secret/2zPXS8dYgGTMGyTk3z6ndAUTocg
+remote:     
+remote: 
+remote: 
+To https://github.com/tsiemasilo/govtech-registration.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/tsiemasilo/govtech-registration.git'
