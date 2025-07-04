@@ -105,7 +105,7 @@ async function sendEmail(registrationData) {
     `;
 
     await transporter.sendMail({
-      from: process.env.GMAIL_USER,
+      from: `"GovTec Conference Events Team" <${process.env.GMAIL_USER}>`,
       to: registrationData.email,
       subject: '🎉 Registration Confirmed - Govtec Competition',
       html: htmlContent
